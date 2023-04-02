@@ -1,4 +1,16 @@
-# HotTakes
+#  ![](https://user.oc-static.com/upload/2021/07/29/16275605596354_PiiquanteLogo.png)
+# Student Project Deployment for fun
+
+## languages and tools
+
+#### HTML5 / CSS3 / JS
+#### front end: Angular
+#### back end: Node.Js / Express / MongoDb / GPC
+
+   ###    🌶️ 🌶️ 🌶️   ###
+
+
+# Piiquantes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
 
