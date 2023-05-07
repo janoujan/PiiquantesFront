@@ -15,7 +15,7 @@ export class AuthService {
 
   createUser(email: string, password: string) {
     return this.http.post<{ message: string }>(
-      'https://piiquantesback-382506.oa.r.appspot.com/api/auth/signup',
+      'https://piiquantes-backend.vercel.app/api/auth/signup',
       { email: email, password: password }
     );
   }
@@ -31,7 +31,7 @@ export class AuthService {
   loginUser(email: string, password: string) {
     return this.http
       .post<{ userId: string; token: string }>(
-        'https://piiquantesback-382506.oa.r.appspot.com/api/auth/login',
+        'https://piiquantes-backend.vercel.app/api/auth/login',
         { email: email, password: password }
       )
       .pipe(
