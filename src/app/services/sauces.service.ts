@@ -14,7 +14,7 @@ export class SaucesService {
 
   getSauces() {
     this.http
-      .get<Sauce[]>('https://piiquantesback-382506.oa.r.appspot.com/api/sauces')
+      .get<Sauce[]>('https://piiquantes-backend.vercel.app/api/sauces')
       .pipe(
         tap((sauces) => this.sauces$.next(sauces)),
         catchError((error) => {
@@ -27,18 +27,14 @@ export class SaucesService {
 
   getSauceById(id: string) {
     return this.http
-      .get<Sauce>(
-        'https://piiquantesback-382506.oa.r.appspot.com/api/sauces/' + id
-      )
+      .get<Sauce>('https://piiquantes-backend.vercel.app/api/sauces/' + id)
       .pipe(catchError((error) => throwError(error.error.message)));
   }
 
   likeSauce(id: string, like: boolean) {
     return this.http
       .post<{ message: string }>(
-        'https://piiquantesback-382506.oa.r.appspot.com/api/sauces/' +
-          id +
-          '/like',
+        'https://piiquantes-backend.vercel.app/api/sauces/' + id + '/like',
         { userId: this.auth.getUserId(), like: like ? 1 : 0 }
       )
       .pipe(
@@ -50,9 +46,7 @@ export class SaucesService {
   dislikeSauce(id: string, dislike: boolean) {
     return this.http
       .post<{ message: string }>(
-        'https://piiquantesback-382506.oa.r.appspot.com/api/sauces/' +
-          id +
-          '/like',
+        'https://piiquantes-backend.vercel.app/api/sauces/' + id + '/like',
         { userId: this.auth.getUserId(), like: dislike ? -1 : 0 }
       )
       .pipe(
@@ -67,7 +61,7 @@ export class SaucesService {
     formData.append('image', image);
     return this.http
       .post<{ message: string }>(
-        'https://piiquantesback-382506.oa.r.appspot.com/api/sauces',
+        'https://piiquantes-backend.vercel.app/api/sauces',
         formData
       )
       .pipe(catchError((error) => throwError(error.error.message)));
@@ -77,7 +71,7 @@ export class SaucesService {
     if (typeof image === 'string') {
       return this.http
         .put<{ message: string }>(
-          'https://piiquantesback-382506.oa.r.appspot.com/api/sauces/' + id,
+          'https://piiquantes-backend.vercel.app/api/sauces/' + id,
           sauce
         )
         .pipe(catchError((error) => throwError(error.error.message)));
@@ -87,7 +81,7 @@ export class SaucesService {
       formData.append('image', image);
       return this.http
         .put<{ message: string }>(
-          'https://piiquantesback-382506.oa.r.appspot.com/api/sauces/' + id,
+          'https://piiquantes-backend.vercel.app/api/sauces/' + id,
           formData
         )
         .pipe(catchError((error) => throwError(error.error.message)));
@@ -97,7 +91,7 @@ export class SaucesService {
   deleteSauce(id: string) {
     return this.http
       .delete<{ message: string }>(
-        'https://piiquantesback-382506.oa.r.appspot.com/api/sauces/' + id
+        'https://piiquantes-backend.vercel.app/api/sauces/' + id
       )
       .pipe(catchError((error) => throwError(error.error.message)));
   }
